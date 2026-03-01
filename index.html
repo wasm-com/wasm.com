@@ -1,1 +1,289 @@
-placeholder
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WASM.COM — The Future of Play is Plugin-Free</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <canvas id="starfield"></canvas>
+
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#">WASM<span class="dot">.COM</span></a>
+      <div class="nav-links">
+        <a href="#ports">Our Ports</a>
+        <a href="#services">Services</a>
+        <a href="#advantage">Advantage</a>
+        <a href="#community">Community</a>
+        <a href="https://discord.gg/M5d8hRGxXb" target="_blank" class="nav-cta">Join Discord →</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-streak"></div>
+    <div class="hero-content">
+      <div class="hero-label">PLUGIN-FREE · WASM-POWERED · DESKTOP-FIRST</div>
+      <h1 class="hero-title">
+        The Future<br/>
+        <em>of Play</em><br/>
+        <span class="hero-title-accent">Is Here.</span>
+      </h1>
+      <p class="hero-sub">
+        High-performance gaming directly in your browser.<br/>
+        No downloads. No installers. Just click and play.
+      </p>
+      <div class="hero-actions">
+        <a href="https://discord.gg/M5d8hRGxXb" target="_blank" class="btn-primary">
+          <span>Join the Inner Circle</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#services" class="btn-ghost">See What We Build</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-n">no</span><span class="stat-l">Install Time</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-n">WASM</span><span class="stat-l">Powered</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-n">∞</span><span class="stat-l">Ports Possible</span></div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>SCROLL</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+
+  <section class="ports-section" id="ports">
+    <div class="ports-bg-glow"></div>
+    <div class="ports-inner">
+      <div class="section-header">
+        <div class="section-tag">// 00 — OUR PORTS</div>
+        <h2 class="section-title">Games We've<br/>Brought to the Web.</h2>
+        <p class="section-desc">Every port below runs entirely in your browser. No install. Click Play and it just works.</p>
+      </div>
+
+
+      <div class="ports-filter-bar">
+        <button class="filter-btn active" onclick="filterPorts(this, 'all')">All</button>
+        <button class="filter-btn" onclick="filterPorts(this, 'unity')">Unity</button>
+        <button class="filter-btn" onclick="filterPorts(this, 'godot')">Godot</button>
+        <button class="filter-btn" onclick="filterPorts(this, 'flash')">Flash Revival</button>
+        <button class="filter-btn" onclick="filterPorts(this, 'gamemaker')">GameMaker</button>
+      </div>
+
+      <div class="ports-grid" id="ports-grid">
+
+        <!--
+          HOW TO ADD A NEW PORT:
+          Copy a .port-card block below, then fill in:
+            data-tag    = engine tag for filtering (unity / godot / flash / gamemaker / other)
+            data-game-url = the URL where the game plays
+            src on <img> = your screenshot/thumbnail URL (or remove <img> and use placeholder)
+            .port-name  = game name
+            Port time   = how long the port took
+        -->
+
+       
+        <div class="port-card" data-tag="godot">
+          <div class="port-img-wrap">
+            <img class="port-img"
+                 src="img/bpac.png"
+                 alt="Brotato Paws & Claws Screenshot"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="port-img-placeholder" style="display:none;">NO SCREENSHOT</div>
+            <div class="port-overlay"></div>
+            <span class="port-engine-badge">Godot</span>
+            <a class="play-btn" href="files/bpac/" target="_blank" aria-label="Play Brotato Paws & Claws">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </a>
+          </div>
+          <div class="port-meta-bar">
+            <div class="port-name">Brotato Paws & Claws </div>
+            <div class="port-stats-row">
+              <div class="port-time">
+                <div class="port-time-icon"></div>
+                Port time: 1 day
+              </div>
+              <a class="port-play-link" href="files/bpac/" target="_blank">Play →</a>
+            </div>
+          </div>
+        </div>
+
+      
+
+        <!-- ===== add the ports above this line pleaseeee ===== -->
+
+      </div>
+      <div class="ports-count" id="ports-count"></div>
+    </div>
+  </section>
+  <!-- ==================== the end of the porting DO NOT POST PORTS PAST THIS LINE plsssss ==================== -->
+
+
+  
+  <section class="section" id="services">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-tag">// 01 — WHAT WE BUILD</div>
+        <h2 class="section-title">Complex Projects.<br/>Web-Ready Results.</h2>
+        <p class="section-desc">We take any game and make it run in a tab. That's our obsession.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="card" data-delay="0">
+          <div class="card-icon">⬡</div>
+          <h3 class="card-title">Engine Conversions</h3>
+          <p class="card-body">Expert porting of Unity, Godot, and GameMaker projects to the modern web stack. Full fidelity, zero compromise.</p>
+          <div class="card-tag">Unity · Godot · GameMaker</div>
+        </div>
+        <div class="card" data-delay="100">
+          <div class="card-icon">◈</div>
+          <h3 class="card-title">Flash Revivals</h3>
+          <p class="card-body">Classic Flash titles resurrected via modern HTML5. Preservation isn't just a word — it's our mission.</p>
+          <div class="card-tag">HTML5 · Canvas · WebGL</div>
+        </div>
+        <div class="card" data-delay="200">
+          <div class="card-icon">◎</div>
+          <h3 class="card-title">WASM Optimization</h3>
+          <p class="card-body">Deep WebAssembly tuning so "heavy" games feel impossibly light. Bundle size obsession included.</p>
+          <div class="card-tag">WebAssembly · Performance</div>
+        </div>
+        <div class="card" data-delay="300">
+          <div class="card-icon">◇</div>
+          <h3 class="card-title">UI/UX Refinement</h3>
+          <p class="card-body">Controls and interfaces rebuilt for a seamless browser experience. Desktop-first, always.</p>
+          <div class="card-tag">Controls · Interface · UX</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section section-dark" id="advantage">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-tag">// 02 — THE ADVANTAGE</div>
+        <h2 class="section-title">Why Wait for<br/>a Progress Bar?</h2>
+      </div>
+      <div class="advantage-grid">
+        <div class="adv-item">
+          <div class="adv-num">01</div>
+          <div class="adv-content">
+            <h4>Zero Friction</h4>
+            <p>Click a link and play. No installations. Ever. The browser is the platform.</p>
+          </div>
+        </div>
+        <div class="adv-item">
+          <div class="adv-num">02</div>
+          <div class="adv-content">
+            <h4>Desktop-First</h4>
+            <p>Built specifically for desktop browser performance. Not an afterthought.</p>
+          </div>
+        </div>
+        <div class="adv-item">
+          <div class="adv-num">03</div>
+          <div class="adv-content">
+            <h4>Lightweight & Fast</h4>
+            <p>We obsess over bundle sizes and load times so you don't have to wait.</p>
+          </div>
+        </div>
+        <div class="adv-item">
+          <div class="adv-num">04</div>
+          <div class="adv-content">
+            <h4>Digital Preservation</h4>
+            <p>Saving lost and experimental projects by giving them a permanent home on the web.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tech-bar">
+        <span class="tech-pill">WebAssembly</span>
+        <span class="tech-pill">WebGL</span>
+        <span class="tech-pill">HTML5</span>
+        <span class="tech-pill">WebGPU</span>
+        <span class="tech-pill">WebSockets</span>
+        <span class="tech-pill">Canvas API</span>
+        <span class="tech-pill">Emscripten</span>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="community">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-tag">// 03 — INNER CIRCLE</div>
+        <h2 class="section-title">Where the<br/>Gears Turn.</h2>
+        <p class="section-desc">Our Discord is where developers, porters, and players are building the future of the web — together.</p>
+      </div>
+      <div class="community-grid">
+        <div class="com-card">
+          <span class="com-icon">◉</span>
+          <h4>First Look</h4>
+          <p>See new ports before they go public. Be the first to play.</p>
+        </div>
+        <div class="com-card">
+          <span class="com-icon">◉</span>
+          <h4>Dev Logs</h4>
+          <p>Behind-the-scenes problem solving. Watch the sausage get made.</p>
+        </div>
+        <div class="com-card">
+          <span class="com-icon">◉</span>
+          <h4>Beta Access</h4>
+          <p>Exclusive roles and early testing builds. Shape what ships.</p>
+        </div>
+        <div class="com-card">
+          <span class="com-icon">◉</span>
+          <h4>Shape the Future</h4>
+          <p>Suggest the next project we bring to the browser. Your voice matters.</p>
+        </div>
+      </div>
+      <div class="join-block">
+        <div class="join-text">
+          <p class="join-note">We're growing. Know your way around a compiler?</p>
+          <p class="join-big">We want you on the team.</p>
+        </div>
+        <a href="https://discord.gg/M5d8hRGxXb" target="_blank" class="btn-primary btn-large">
+          <span>Join Discord</span>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="cta-banner">
+    <div class="cta-inner">
+      <div class="cta-label">FOCUSED · OPTIMIZED · WEB-ONLY</div>
+      <h2 class="cta-title">The Web Is the<br/>Ultimate Gaming Platform.</h2>
+      <a href="https://discord.gg/M5d8hRGxXb" target="_blank" class="btn-primary btn-large">
+        <span>Ready to Play?</span>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">WASM<span class="dot">.COM</span></div>
+      <div class="footer-links">
+        <a href="https://discord.gg/M5d8hRGxXb" target="_blank">Discord</a>
+        <a href="#ports">Ports</a>
+        <a href="#services">Services</a>
+        <a href="#advantage">Advantage</a>
+      </div>
+      <div class="footer-copy">© 2025 WASM.COM — Plugin-Free Gaming</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
