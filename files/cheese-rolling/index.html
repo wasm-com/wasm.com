@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Unity WebGL Player | CheeseRolling</title>
     <base
-      href="https://cdn.jsdelivr.net/gh/SomeRandomFella/portsandrips@master/CheeseRolling/"
+      href="https://cdn.jsdelivr.net/gh/SomeRandomFella/portsandrips@master/CheeseRollingWeb/"
     />
     <link rel="shortcut icon" href="TemplateData/favicon.ico" />
     <link rel="stylesheet" href="TemplateData/style.css" />
@@ -83,8 +83,8 @@
       );
 
       const PART_FILES = [
-        { base: "Build/CheeseRolling.data", label: "CheeseRolling.data" },
-        { base: "Build/CheeseRolling.wasm", label: "CheeseRolling.wasm" },
+        { base: "Build/CheeseRollingWeb.data", label: "CheeseRolling.data" },
+        { base: "Build/CheeseRollingWeb.wasm", label: "CheeseRolling.wasm" },
       ];
 
       const assembledBlobs = {};
@@ -226,15 +226,15 @@
         }
 
         var buildUrl = "Build";
-        var loaderUrl = buildUrl + "/CheeseRolling.loader.js";
+        var loaderUrl = buildUrl + "/CheeseRollingWeb.loader.js";
         var config = {
           dataUrl:
-            assembledBlobs["Build/CheeseRolling.data"] ||
-            buildUrl + "/CheeseRolling.data",
-          frameworkUrl: buildUrl + "/CheeseRolling.framework.js",
+            assembledBlobs["Build/CheeseRollingWeb.data"] ||
+            buildUrl + "/CheeseRollingWeb.data",
+          frameworkUrl: buildUrl + "/CheeseRollingWeb.framework.js",
           codeUrl:
-            assembledBlobs["Build/CheeseRolling.wasm"] ||
-            buildUrl + "/CheeseRolling.wasm",
+            assembledBlobs["Build/CheeseRollingWeb.wasm"] ||
+            buildUrl + "/CheeseRollingWeb.wasm",
           streamingAssetsUrl: "StreamingAssets",
           companyName: "The Interviewed",
           productName: "CheeseRolling",
