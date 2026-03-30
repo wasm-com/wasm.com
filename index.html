@@ -115,18 +115,31 @@
         <source id="video-source" src="https://cdn.jsdelivr.net/gh/wasm-com/wasm.com@main/heist.mov" type="video/quicktime">
     </video>
     <div class="video-controls">
-        <button onclick="changeVideo('https://cdn.jsdelivr.net/gh/wasm-com/wasm.com@main/heist.mov')">heist</button>
-        <button onclick="changeVideo('https://cdn.jsdelivr.net/gh/wasm-com/wasm.com@main/heist%20(1).mov')">heist (1)</button>
+        <button class="vid-btn active" onclick="changeVideo(this, 'https://cdn.jsdelivr.net/gh/wasm-com/wasm.com@main/heist.mov')">heist</button>
+        <button class="vid-btn" onclick="changeVideo(this, 'https://cdn.jsdelivr.net/gh/wasm-com/wasm.com@main/heist%20(1).mov')">heist (1)</button>
     </div>
 </div>
 
 <script>
-    function changeVideo(url) {
+    async function changeVideo(btn, url) {
         const video = document.getElementById('main-video');
         const source = document.getElementById('video-source');
-        source.src = url;
-        video.load();
-        video.play();
+        
+        if (source.src === url) return;
+
+
+        document.querySelectorAll('.vid-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        
+        try {
+            video.pause();
+            source.src = url;
+            await video.load();
+            await video.play();
+        } catch (err) {
+
+        }
     }
 </script>
 	
