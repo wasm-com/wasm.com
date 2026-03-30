@@ -111,8 +111,9 @@
     </main>
 
 <div class="video-player-container">
-    <video id="main-video" controls>
-        <source id="video-source" src="https://cdn.jsdelivr.net/gh/wasm-com/wasm.com@main/heist.mov" type="video/quicktime">
+    <video id="main-video" controls playsinline>
+        <source src="https://cdn.jsdelivr.net/gh/wasm-com/wasm.com@main/heist.mov" type="video/mp4">
+        <source src="https://cdn.jsdelivr.net/gh/wasm-com/wasm.com@main/heist.mov" type="video/quicktime">
     </video>
     <div class="video-controls">
         <button class="vid-btn active" onclick="changeVideo(this, 'https://cdn.jsdelivr.net/gh/wasm-com/wasm.com@main/heist.mov')">heist</button>
@@ -121,24 +122,26 @@
 </div>
 
 <script>
-    async function changeVideo(btn, url) {
+    function changeVideo(btn, url) {
         const video = document.getElementById('main-video');
-        const source = document.getElementById('video-source');
         
-        if (source.src === url) return;
-
-
         document.querySelectorAll('.vid-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
+  
+        video.pause();
+        video.src = url;
+        video.load();
         
-        try {
-            video.pause();
-            source.src = url;
-            await video.load();
-            await video.play();
-        } catch (err) {
-
+     
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+           
+            }).catch(error => {
+        
+                console.log("Playback interaction required");
+            });
         }
     }
 </script>
