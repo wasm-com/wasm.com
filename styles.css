@@ -131,36 +131,51 @@ footer a:hover {
 }
 .video-player-container {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 300px;
+    bottom: 24px;
+    right: 24px;
+    width: 320px;
     background: #111;
     border: 1px solid #333;
-    padding: 10px;
+    padding: 12px;
     z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
+
 .video-player-container video {
     width: 100%;
+    aspect-ratio: 16 / 9;
     border: 1px solid #444;
     background: #000;
+    display: block;
 }
+
 .video-controls {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 12px;
 }
+
 .video-controls button {
-    flex: 1;
     background: #1a1a1a;
-    border: 1px solid #444;
-    color: #ccc;
-    padding: 5px;
+    border: 1px solid #333;
+    color: #888;
+    padding: 8px 4px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 13px;
     font-family: inherit;
+    transition: all 0.2s ease;
+    text-transform: lowercase;
 }
+
 .video-controls button:hover {
     background: #222;
+    color: #fff;
+    border-color: #555;
+}
+
+.video-controls button.active {
+    background: #333;
     color: #fff;
     border-color: #666;
 }
