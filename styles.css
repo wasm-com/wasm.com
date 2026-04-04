@@ -1,0 +1,188 @@
+/*  CRACKERS WHY DO YOU USE BLOCK SO MUCH. */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #0d0d0d;
+  color: #e5e5e5;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  font-size: 1.44em;
+}
+.container {
+  max-width: 1375px;
+  margin: 0 auto;
+  padding: 38px;
+}
+nav {
+  border-bottom: 1px solid #333;
+  background: #111;
+}
+nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 31px 38px;
+}
+.logo {
+  width: 40px;
+  height: 40px;
+  image-rendering: pixelated;
+}
+.links {
+  display: flex;
+  align-items: center;
+}
+.links a {
+  margin-left: 19px;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 17.5px;
+}
+.links a:hover {
+  color: #fff;
+}
+h1 {
+  font-size: 50px;
+  margin-bottom: 13px;
+}
+.tagline {
+  color: #888;
+  margin-bottom: 31px;
+  font-size: 17.5px;
+}
+.group-section {
+  margin-bottom: 112px;
+}
+.group-section h2 {
+  font-size: 25px;
+  margin-bottom: 33px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 12px;
+}
+.group-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 125px);
+  gap: 30px;
+}
+.group-memb {
+  text-align: center;
+  font-size: 16px;
+}
+
+.group-memb img {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #444;
+  background: #000;
+  image-rendering: auto;
+  object-fit: cover;
+}
+.group-memb span {
+  display: block;
+  margin-top: 9px;
+  color: #aaa;
+}
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 225px);
+  gap: 10px;
+}
+.game-card {
+  text-decoration: none;
+  color: #ccc;
+  font-size: 16px;
+  display: block;
+  padding: 10px !important;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.game-card img {
+  width: 100%;
+  height: 138px;
+  border: 1px solid #444;
+  background: #000;
+  object-fit: cover;
+}
+.game-card span {
+  display: block;
+  margin-top: 9px;
+}
+.game-card:hover {
+  transform: scale(1.03);
+  background-color: rgb(22, 22, 22);
+}
+.about-text {
+  font-size: 19px;
+  color: #aaa;
+  max-width: 750px;
+  line-height: 1.6;
+}
+footer {
+  border-top: 1px solid #333;
+  margin-top: 90px;
+  padding: 31px 0;
+  font-size: 16px;
+  color: #777;
+  text-align: center;
+}
+footer a {
+  color: #aaa;
+  text-decoration: none;
+}
+footer a:hover {
+  color: #fff;
+}
+.video-player-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 320px;
+  background: #111;
+  border: 1px solid #333;
+  padding: 15px;
+  z-index: 1000;
+}
+
+.video-player-container video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid #444;
+  background: #000;
+  display: block;
+  image-rendering: auto;
+}
+
+.video-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.video-controls button {
+  background: #000;
+  border: 1px solid #444;
+  color: #888;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: inherit;
+  text-transform: lowercase;
+  transition: 0.2s;
+}
+
+.video-controls button:hover {
+  border-color: #888;
+  color: #fff;
+}
+
+.video-controls button.active {
+  border-color: #eee;
+  color: #fff;
+  background: #1a1a1a;
+}
