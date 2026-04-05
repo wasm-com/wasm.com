@@ -63,64 +63,7 @@
 
         <section class="group-section" id="games">
           <h2>games</h2>
-          <div class="game-grid">
-            <div class="game-card" data-link="files/BATIM/index.html">
-              <img src="img/batim.png" />
-              <div class="game-info">
-                <span class="game-title">Bendy and the Ink Machine</span>
-                <span class="game-desc">port by crackers & slqnt</span>
-              </div>
-            </div>
-            <div class="game-card" data-link="files/miside/miside.html">
-              <img src="img/miside.jpg" />
-              <div class="game-info">
-                <span class="game-title">MiSide</span>
-                <span class="game-desc">port by crackers</span>
-              </div>
-            </div>
-            <div class="game-card" data-link="files/birthdaybash/index.html">
-              <img src="img/bdaybash.png" />
-              <div class="game-info">
-                <span class="game-title">Baldi's Basics Birthday Bash</span>
-                <span class="game-desc">port by crackers</span>
-              </div>
-            </div>
-            <div class="game-card" data-link="files/boilnoodles/index.html">
-              <img src="img/noodle.png" />
-              <div class="game-info">
-                <span class="game-title">Boil Noodles at Night</span>
-                <span class="game-desc">port by sexyplankton</span>
-              </div>
-            </div>
-            <div class="game-card" data-link="files/cuphead/index.html">
-              <img src="img/cuphead.png" />
-              <div class="game-info">
-                <span class="game-title">Cuphead</span>
-                <span class="game-desc">port by crackers</span>
-              </div>
-            </div>
-            <div class="game-card" data-link="files/cheese-rolling/index.html">
-              <img src="img/cheeserolling.png" />
-              <div class="game-info">
-                <span class="game-title">Cheese Rolling</span>
-                <span class="game-desc">port by sexyplankton</span>
-              </div>
-            </div>
-            <div class="game-card" data-link="files/bpac/index.html">
-              <img src="img/bpac.png" />
-              <div class="game-info">
-                <span class="game-title">Brotato Claws n' Paws</span>
-                <span class="game-desc">port by dude</span>
-              </div>
-            </div>
-            <div class="game-card" data-link="files/Approaches/index.html">
-              <img src="img/approaches.png" />
-              <div class="game-info">
-                <span class="game-title">Approaches</span>
-                <span class="game-desc">port by shxyder</span>
-              </div>
-            </div>
-          </div>
+          <div class="game-grid"></div>
         </section>
 
         <section class="group-section" id="about">
@@ -171,14 +114,52 @@
     </div>
 
     <script>
-      const allGames = document.querySelectorAll(".game-card");
+      const gameHolder = document.querySelector(".game-grid");
 
-      allGames.forEach((game) => {
-        game.addEventListener("click", () => {
-          const link = game.getAttribute("data-link");
-          window.open(link, "_blank");
+      fetch("games.json")
+        .then((res) => res.json())
+        .then((games) => {
+          games
+            .sort((a, b) =>
+              a.name.localeCompare(b.name, undefined, { sensitivity: "base" }),
+            )
+            .forEach((game) => {
+              // the urge to just use innerhtml instead of ts
+
+              const gameThing = document.createElement("div");
+              gameThing.classList.add("game-card");
+
+              const gameImage = document.createElement("img");
+              gameImage.src = game.imageUrl;
+
+              const gameInfo = document.createElement("div");
+              gameInfo.classList.add("game-info");
+
+              const gameTitle = document.createElement("span");
+              gameTitle.classList.add("game-title");
+              gameTitle.textContent = game.name;
+
+              const gamePorter = document.createElement("span");
+              gamePorter.classList.add("game-desc"); // not rlly a desc but wtv
+              gamePorter.textContent = `port by ${game.porter}`;
+
+              gameInfo.appendChild(gameTitle);
+              gameInfo.appendChild(gamePorter);
+              gameThing.appendChild(gameImage);
+              gameThing.appendChild(gameInfo);
+
+              gameThing.addEventListener("click", () => {
+                window.open(game.gameUrl, "_blank");
+              });
+
+              gameHolder.appendChild(gameThing);
+            });
+        })
+        .catch((error) => {
+          alert(
+            "hi, games failed to load, either someone fucked something up or idk",
+          );
         });
-      });
 
       function changeVideo(btn, url) {
         const video = document.getElementById("main-video");
