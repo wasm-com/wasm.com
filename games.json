@@ -61,5 +61,12 @@
     "gameUrl": "files/Helltaker/helltaker.html",
     "imageUrl": "img/helltaker.png",
     "porter": "shxyder"
+  },
+  {
+    "id": 10,
+    "name": "Stardew Valley",
+    "gameUrl": "files/stardewvalley/index.html",
+    "imageUrl": "img/star.jpg",
+    "porter": "cirsius"
   }
 ]

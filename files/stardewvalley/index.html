@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stardew Valley</title>
+    <base
+      href="https://cdn.jsdelivr.net/gh/SomeRandomFella/portsandrips@master/ah/"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #000;
+      }
+      #loading {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font: 1.5rem/1 sans-serif;
+        z-index: 1;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      #loading.hidden {
+        display: none;
+      }
+      #music-choice {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      #music-choice button {
+        font: 1.1rem/1 sans-serif;
+        padding: 0.6rem 1.5rem;
+        border: 2px solid #fff;
+        border-radius: 6px;
+        background: transparent;
+        color: #fff;
+        cursor: pointer;
+        min-width: 260px;
+        transition: background 0.15s;
+      }
+      #music-choice button:hover {
+        background: rgba(255, 255, 255, 0.15);
+      }
+      #music-choice .hint {
+        font-size: 0.85rem;
+        opacity: 0.6;
+      }
+      canvas {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loading">
+      <div id="music-choice">
+        <div>Download options</div>
+        <button id="btn-no-music">
+          Play without music <span class="hint">(~64 MB)</span>
+        </button>
+        <button id="btn-with-music">
+          Play with music
+          <span class="hint">(DONT CLICK AUDIO DOESNT WORK)</span>
+        </button>
+      </div>
+    </div>
+    <script>
+      const originalFetch = window.fetch;
+
+      window.fetch = function (resource, options = {}) {
+        options.credentials = "omit";
+        return originalFetch(resource, options);
+      };
+    </script>
+    <script>
+      const bgAudio = new Audio("tuff.mp3");
+      bgAudio.loop = true;
+      bgAudio.volume = 0.5;
+
+      setTimeout(() => {
+        bgAudio.play().catch((err) => {
+          console.log("Autoplay blocked until user interacts.");
+        });
+      }, 8000);
+    </script>
+    <script>
+      alert(
+        "READ ME!!! GAME DOES NOT AUTO SAVE, WHEN GETTING OFF CLICK EXIT GAME AND DOWNLOAD THE .TAR SAVE FILE AND THEN YOU CAN IMPORT IT NEXT TIME (also music replaced with fire shit cause og music broke and i dont have time to fix)",
+      );
+    </script>
+    <canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+    <script type="module" src="game.js"></script>
+  </body>
+</html>
