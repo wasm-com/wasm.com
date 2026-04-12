@@ -81,10 +81,22 @@ h1 {
   image-rendering: auto;
   object-fit: cover;
 }
+.group-memb,
+.group-memb:link,
+.group-memb:visited {
+  text-decoration: none;
+  color: #aaa;
+}
 .group-memb span {
   display: block;
   margin-top: 9px;
   color: #aaa;
+  text-decoration: none;
+}
+.group-memb:hover span {
+  text-decoration: underline;
+  text-decoration-color: white;
+  text-underline-offset: 3px;
 }
 .game-grid {
   display: grid;
