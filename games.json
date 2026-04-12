@@ -48,13 +48,6 @@
     "imageUrl": "img/bpac.png",
     "porter": "dude"
   },
-   {
-    "id": 12,
-    "name": "Want Half Of A Mounds Bar"
-    "gameUrl": "files/mound/index.html",
-    "imageUrl": "img/mounds.png",
-    "porter": "dude"
-  },
   {
     "id": 8,
     "name": "Approaches",
@@ -82,5 +75,12 @@
     "gameUrl": "files/diceAmillion/diceamillion.html",
     "imageUrl": "img/diceamillion.png",
     "porter": "NotRexed"
+  },
+   {
+    "id": 12,
+    "name": "Want Half Of A Mounds Bar"
+    "gameUrl": "files/mound/index.html",
+    "imageUrl": "img/image.png",
+    "porter": "dude"
   }
 ]
