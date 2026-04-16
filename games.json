@@ -89,5 +89,12 @@
     "gameUrl": "files/MFDW2/index.html",
     "imageUrl": "img/The_Man_from_the_Window_2_29.webp",
     "porter": "dude"
+  },
+  {
+    "id": 14,
+    "name": "FEZ",
+    "gameUrl": "files/FEZ/",
+    "imageUrl": "img/FEZ.png",
+    "porter": "gurtmuncher"
   }
 ]
